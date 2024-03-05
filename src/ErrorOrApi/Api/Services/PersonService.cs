@@ -26,9 +26,7 @@ public class PersonService : IPersonService
         var validationResult = _personValidator.Validate(person);
 
         if (validationResult.IsValid is false)
-        {
             return GetValidationErrors(validationResult);
-        }
 
         return $"Hello {person.FullName}";
     }
