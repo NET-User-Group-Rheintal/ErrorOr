@@ -21,6 +21,7 @@ public class PersonController : ControllerBase
     
     [ProducesResponseType(typeof(PersonResponse), 200)]
     [ProducesResponseType(typeof(ValidationFailureResponse), 400)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [HttpPost("WithoutErrorOr", Name = "WithoutErrorOr")]
     public IResult GreetPersonWithExceptions(PersonRequest request)
     {
@@ -46,7 +47,7 @@ public class PersonController : ControllerBase
         }
         catch
         {
-            return Results.BadRequest();
+            return Results.StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         var response = message.MapToPersonResponse();
