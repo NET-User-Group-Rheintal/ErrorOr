@@ -19,6 +19,7 @@ public class PersonController : ControllerBase
         _personService = personService;
     }
     
+    #region Exception
     [ProducesResponseType(typeof(PersonResponse), 200)]
     [ProducesResponseType(typeof(ValidationFailureResponse), 400)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -54,7 +55,9 @@ public class PersonController : ControllerBase
         
         return Results.Ok(response);
     }
+    #endregion
     
+    #region ErrorOr
     [ProducesResponseType(typeof(PersonResponse), 200)]
     [ProducesResponseType(typeof(ValidationFailureResponse), 400)]
     [HttpPost("WithErrorOr", Name = "WithErrorOr")]
@@ -74,4 +77,5 @@ public class PersonController : ControllerBase
         
         return Results.Ok(response);
     }
+    #endregion
 }
