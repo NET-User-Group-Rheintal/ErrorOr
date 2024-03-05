@@ -1,0 +1,21 @@
+﻿@Api_HostAddress = https://localhost:7263
+
+POST {{Api_HostAddress}}/person/WithErrorOr
+Content-Type: application/json
+
+{
+  "firstName": "Bill",
+  "lastName": "Gates"
+}
+
+###
+
+POST {{Api_HostAddress}}/person/WithoutErrorOr
+Content-Type: application/json
+
+{
+  "firstName": "Bill",
+  "lastName": "Gates"
+}
+
+###
